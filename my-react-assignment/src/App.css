@@ -6,3 +6,38 @@
     font-weight: 700;
 
 }
+
+.card-title {
+    color: #2F80ED;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.card-name {
+    color: #1C1B1B;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.card-list {
+    color: rgba(28, 27, 27, 0.60);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.card-credit {
+    color: rgba(28, 27, 27, 0.80);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.card-total {
+    color: rgba(28, 27, 27, 0.80);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+}

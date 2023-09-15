@@ -6,7 +6,8 @@ import Card from './Card/Card';
 
 const Home = () => {
 
-    const [AllCourse, setAllcourse] = useState([])
+    const [AllCourse, setAllcourse] = useState([]);
+    const [selectCourse, setSelectCourse] = useState([]);
     useEffect(() => {
         fetch("./fackdata.json")
             .then((res) => res.json())
@@ -14,28 +15,32 @@ const Home = () => {
 
     }, [])
 
-    console.log(AllCourse.length)
+    const handleClick = () => {
+        console.log('click')
+    }
+
+
 
     return (
-        <div className='flex gap-32 mt-10'>
-            <div style={{border:"1px solid black"}} className='grid grid-cols-3 max-w-7xl gap-4 ml-6 p-5'>
+        <div className='flex gap-20 mt-2'>
+            <div className='grid grid-cols-3 max-w-7xl gap-4 ml-6 p-2'>
                 {
                     AllCourse.map((course) => (
 
                         <div className="">
-                            <div className="card w-96 bg-base-100 shadow-xl mt-10">
-                                <figure><img src={[course.Image]} alt="Shoes" /></figure>
+                            <div className="card w-96 bg-base-100 shadow-xl mt-10 pt-5">
+                                <figure><img src={course.Image} alt="Shoes" /></figure>
                                 <div className="card-body">
-                                    <h2 className="card-title">{[course.CourseName]}</h2>
+                                    <h2 className="card-title">{course.CourseName}</h2>
                                     <p>{[course.Title]}</p>
                                     <div className="flex mt-3">
                                         <img src="https://i.ibb.co/mJVp9Vy/dollar-sign-1.png" alt="" />
-                                        <p>Price : {[course.Price]}</p>
+                                        <p>Price : {course.Price}</p>
                                         <img src="https://i.ibb.co/RPK3Vrf/Frame.png" alt="" />
-                                        <p>Credit :{[course.Credit]}</p>
+                                        <p>Credit :{course.Credit}</p>
                                     </div>
                                     <div className="card-actions justify-center">
-                                        <button className="btn btn-primary w-80 mt-5">Select</button>
+                                        <button onClick={() => handleClick()} className="btn btn-primary w-80 mt-5">Select</button>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +53,7 @@ const Home = () => {
             </div>
 
 
-            <div style={{border:"1px solid black"}} className=''>
+            <div className=' mt-14'>
                 <Card></Card>
             </div>
 

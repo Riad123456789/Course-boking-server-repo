@@ -16,7 +16,7 @@ const Card = ({ selectCourse, countTotal, creditTotal, TotalRemaining }) => {
                 ))
             }
             <hr className='mt-3'></hr>
-            <p className='card-credit mt-2 '>Total Credit Hour : {creditTotal}hr</p>
+            <p className='card-credit mt-2 '>Total Credit Hour : {creditTotal}</p>
             <hr className='mt-5'></hr>
             <p className='card-total mt-2'>Total Price :   {countTotal} USD</p>
         </div>

@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card/Card';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
 
@@ -27,28 +29,31 @@ const Home = () => {
         let credit = course.Credit;
 
         if (isExist) {
-            return alert('alart');
+
+
+            return toast.error('already selected')
+
         } else {
 
             selectCourse.forEach((item) => {
                 count = count + item.Price;
             })
-            setCountTotal(count)
-
-
+           
             selectCourse.forEach((item) => {
                 credit = credit + item.Credit;
             })
-            setcreditTotal(credit)
 
             const TotalRemaining = 20 - credit;
 
             if (credit > 20) {
-                return alert('alatr')
+                return toast.error('you cannot select more than 20 hr!!!')
             } else {
+                setCountTotal(count)
                 setTotalRemaining(TotalRemaining);
+                setcreditTotal(credit)
+                setSelectCourse([...selectCourse, course]);
             }
-            setSelectCourse([...selectCourse, course]);
+
         }
 
     };
@@ -73,6 +78,7 @@ const Home = () => {
                                     </div>
                                     <div className="card-actions justify-center">
                                         <button onClick={() => handleClick(course)} className="btn btn-primary w-80 mt-5">Select</button>
+                                        < ToastContainer />
                                     </div>
                                 </div>
                             </div>
